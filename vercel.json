@@ -4,16 +4,6 @@
   "github": {
     "enabled": false
   },
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "download.html",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
     {
       "src": "/download",
@@ -24,11 +14,15 @@
       "dest": "/download.html"
     },
     {
-      "src": "/",
-      "dest": "/index.html"
+      "src": "/(.*\\.exe)",
+      "dest": "/$1"
     },
     {
-      "src": "/index.html",
+      "src": "/(.*\\.bat)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
